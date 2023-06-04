@@ -13,7 +13,11 @@ body{
     font-weight: 400;
     line-height: 1.7;
     color: #777;
-    
+    background-image: url('bg.png');
+    background-position:  center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .main-title{
@@ -43,41 +47,6 @@ body{
     text-transform: uppercase;
 }
 
-.svg-img{
-   display: block;
-   margin: auto;
-}
-
-svg{
-    display: block;
-   margin: auto;
-}
-
-#clock{
-    animation: clockHand 5s infinite linear;
-    
-    
-    transform-box: fill-box;
-    transform-origin: bottom;
-}
-
-#leftTree, #righTree{
-    animation: tree 2s ease-in-out infinite alternate;
-    transform-box: fill-box;
-    transform-origin: bottom;
-}
-
-#man{
-    animation: manBody 1s ease-in-out infinite alternate;
-    transform-box: fill-box;
-    transform-origin: bottom;
-}
-
-#pc-circle{
-    fill: #6ace66;
-    stroke-width: 4;
-    animation: change-light 4s linear infinite alternate;
-}
 
 .footer {
     position: absolute;
@@ -89,47 +58,7 @@ svg{
     font-size: 1.3rem;
 }
 
-@keyframes clockHand{
-    from{
-        transform: rotateZ(0deg);
-    }
-    from{
-        transform: rotateZ(-360deg);
-    }
-}
 
-@keyframes manBody{
-    from{
-        transform: rotateX(0deg);
-    }
-    to{
-        transform: rotateX(10deg);
-    }
-}
-
-@keyframes tree{
-    from{
-        transform: rotateZ(10deg);
-    }
-    to{
-        transform: rotateZ(-20deg);
-    }
-}
-
-@keyframes change-light {
-    0% {
-        stroke: #cd61f8;
-      }
-      25% {
-        stroke: #6ace66;
-      }
-      75% {
-        stroke: #2995c0;
-      }
-      100% {
-        stroke: #e92949;
-      }
-  }
 
   /* Media Queries */
 
