@@ -1,0 +1,53 @@
+version: "3.7"
+
+services:
+  app:
+    depends_on:
+      - db
+    build:
+      args:
+        user: vsstudio
+        uid: 1001
+      context: ./
+      dockerfile: .docker/php7.4-fpm.dockerfile
+    image: vsstudio/app
+    container_name: vsstudio-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    # command: sh -c "composer install --ignore-platform-reqs && docker-php-entrypoint php-fpm"
+    networks:
+      - vsstudio
+  db:
+    image: mysql/mysql-server:8.0.23
+    container_name: vsstudio-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - 33061:3306
+    volumes:
+      - .docker/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - vsstudio
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: vsstudio-nginx
+    restart: unless-stopped
+    ports:
+      - 8008:80
+    volumes:
+      - ./:/var/www
+      - .docker/nginx:/etc/nginx/conf.d
+    networks:
+      - vsstudio
+
+networks:
+  vsstudio:
+    driver: bridge

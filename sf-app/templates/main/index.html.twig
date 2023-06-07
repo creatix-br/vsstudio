@@ -6,7 +6,7 @@
 <!--[if gt IE 9]><!-->
 <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-	<base href="./">
+	
     <meta charset="utf-8">
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />  -->
 
@@ -14,14 +14,14 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
 	
 	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" type="text/css" href="style/plugins.css?8" />
-	<link rel="stylesheet" type="text/css" href="style/style.css?9" />	
+	<link rel="stylesheet" type="text/css" href="{{ asset('coming-soon/style/plugins.css?8') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('coming-soon/style/style.css?9') }}" />	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/plugins.js?8"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/custom.js?2021"></script>
+    <script type="text/javascript" src="{{ asset('coming-soon/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('coming-soon/js/plugins.js?8') }}"></script>
+    <script type="text/javascript" src="{{ asset('coming-soon/js/script.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('coming-soon/js/custom.js?2021') }}"></script>
 
     <!--[if lt IE 9]>
         <script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,12 +40,13 @@
 						<h1 id="logo" class="anim-go-left"><a href="/"><span>Vívia Silva Studio</span></a></h1>				
 						<h2 class="anim-go-right">Estamos chegando...</h2>
 						<div id="countdown" class="anim-go-left"></div>
-						<h5 class="anim-go-right" style="display: none">Subscribe to our mailing list or follow us on social media to stay up to date.</h5>
-						<form method="post" id="newsletter-form" class="the-form anim-go-left" action="subscribe.php">
-							<div class="field-wrapper" style="display: none">
-								<input type="text" class="textfield" name="email" placeholder="Email address" />
-								<button type="submit" class="btn">Subscribe</button>
-								<a class="btn btn-trigger" href="#page-contact">Contact</a>
+						<h5 class="anim-go-right">Cadastre-se e garanta descontos exclusivos para sempre!</h5>
+						<form method="post" id="newsletter-form" class="the-form anim-go-left" action="{{ path('early_registration') }}">
+							<div class="field-wrapper">
+								<input type="text" class="textfield" name="name" placeholder="Nome e Sobrenome" required />
+								<input type="text" class="textfield" name="email" placeholder="E-mail" required />
+								<input type="text" class="textfield" name="phone" placeholder="Telefone" required />
+								<button type="submit" class="btn">Cadastrar</button>
 								<input type="hidden" name="submit" value="1" />
 							</div>
 							<div class="message"></div>
@@ -60,7 +61,7 @@
 				<div class="footer-wrapper">
 					<div class="footer-item">
 						<ul class="social-links">
-							<li><a class="social anim-go-top facebook" href="#" target="_blank" title="Facebook"><span></span></a></li>
+							<li><a class="social anim-go-top facebook" href="https://www.facebook.com/profile.php?id=100093262186397" target="_blank" title="Facebook"><span></span></a></li>
 							<li><a class="social anim-go-bottom instagram" href="https://www.instagram.com/viviasilva_studio/" target="_blank" title="Instagram"><span></span></a></li>
 						</ul>
 					</div>
@@ -98,15 +99,15 @@
 	</div><!-- END CONTACT PAGE -->
 	
 	<!-- BEGIN FLARES -->
-	<div id="flare-1" class="flare"><img src="images/flare-1.png" /></div>
-	<div id="flare-2" class="flare"><img src="images/flare-2.png" /></div>
-	<div id="flare-3" class="flare"><img src="images/flare-3.png" /></div>
-	<div id="flare-4" class="flare"><img src="images/flare-4.png" /></div>
+	<div id="flare-1" class="flare"><img src="{{ asset('coming-soon/images/flare-1.png') }}" /></div>
+	<div id="flare-2" class="flare"><img src="{{ asset('coming-soon/images/flare-2.png') }}" /></div>
+	<div id="flare-3" class="flare"><img src="{{ asset('coming-soon/images/flare-3.png') }}" /></div>
+	<div id="flare-4" class="flare"><img src="{{ asset('coming-soon/images/flare-4.png') }}" /></div>
 	<!-- END FLARES -->
 	
 	<!-- BEGIN BACKGROUND -->
 	<div id="background">
-		<img src="images/backgound.jpg" width="1366" height="800" />
+		<img src="{{ asset('coming-soon/images/backgound.jpg') }}" width="1366" height="800" />
 	</div><!-- END BACKGROUND -->
 
 </body>

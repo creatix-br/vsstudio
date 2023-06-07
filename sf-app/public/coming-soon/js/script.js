@@ -54,17 +54,20 @@
 					dataType: 'json',
 					data: send_data,
 					success: function(result){
-					
-						if(result.error){
-							form.find('.message').html(result.message);
-						}else if(result.success){
-							form.find('.message').html(result.message);
-							form.find('input[type="text"]').val('');
-							form.find('textarea').val('');
-						}
-						
+						form.find('.message').html(result.message);
+						form.find('input[type="text"]').val('');
+						form.find('textarea').val('');
 						form.removeClass('processing');
-						
+					},
+					error: function(result) {
+						let errorMsg = 'Não foi possível realizar o seu cadastro. Por favor, tente novamente mais tarde.';
+						if (result.status != 500) {
+							let _response = JSON.parse(result.responseText);
+							errorMsg = _response.message ?? errorMsg;
+						}
+
+						form.find('.message').html(errorMsg);
+						form.removeClass('processing');
 					}
 				});
 				

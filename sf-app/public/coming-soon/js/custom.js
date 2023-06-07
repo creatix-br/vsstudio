@@ -10,7 +10,7 @@ jQuery(document).ready(function($){
 	/***   ------------------------------------------------------   ***/
 	var options = {
 		startDate : new Date(),
-		endDate: new Date( "June 12, 2023" )
+		endDate: new Date( "July 01, 2023" )
 		
 		/***   TRANSLATION : Enable following line by delete //   ***/
 		// ,titleDays : 'hari', titleHours : 'jam', titleMinutes : 'menit', titleSeconds : 'detik'
