@@ -1,0 +1,14 @@
+_default:
+  not_null: "Campo obrigatório"
+  invalid: "Valor inválido"
+
+user:
+  password:
+    old_not_match: "A senha atual está errada."
+  email:
+    already_been_used: "Este e-mail já está sendo utilizado."
+  phone:
+    already_been_used: "Este telefone já está sendo utilizado."
+  medias:
+    no_media: "Nenhuma foto enviada."
+    invalid: "%invalid% Arquivo(s) inválido(s)"

@@ -38,7 +38,10 @@
 			$('form').submit(function(event){
 				event.preventDefault();
 				
-				var form = $(this);
+				let form = $(this);
+				let _bt = $('button[type="submit"]', form);
+				_bt.addClass('disabled');
+				_bt.empty().html('<i class="fa-solid fa-circle-notch fa-spin"></i>');
 				
 				if(form.hasClass('processing')){
 					return false;
@@ -54,20 +57,40 @@
 					dataType: 'json',
 					data: send_data,
 					success: function(result){
-						form.find('.message').html(result.message);
+						// form.find('.message').html(result.message);
 						form.find('input[type="text"]').val('');
 						form.find('textarea').val('');
 						form.removeClass('processing');
+						_bt.removeClass('disabled').empty().html('Cadastrar');
+
+						Swal.fire({
+							title: 'Obaaa!',
+							html: 'Cadastro realizado com sucesso! <i class="fa-regular fa-face-smile"></i>',
+							icon: 'success',
+							confirmButtonText: 'Ok'
+						});
 					},
 					error: function(result) {
 						let errorMsg = 'Não foi possível realizar o seu cadastro. Por favor, tente novamente mais tarde.';
-						if (result.status != 500) {
-							let _response = JSON.parse(result.responseText);
-							errorMsg = _response.message ?? errorMsg;
+						if (result.status == 400) {
+							errorMsg = "";
+							let _violations = JSON.parse(result.responseText).violations;
+							_violations.forEach((el) => {
+								let _label = el.propertyPath == 'name' ? 'Nome' : (el.propertyPath == 'email' ? 'E-mail' : 'Telefone');
+								errorMsg += `${_label}: ${el.title}<br />`;
+							});
 						}
 
-						form.find('.message').html(errorMsg);
+						Swal.fire({
+							title: 'Ooops!',
+							html: errorMsg,
+							icon: 'error',
+							confirmButtonText: 'Ok'
+						});
+
+						// form.find('.message').html(errorMsg);
 						form.removeClass('processing');
+						_bt.removeClass('disabled').empty().html('Cadastrar');
 					}
 				});
 				
@@ -144,6 +167,10 @@
 		
 		obj.preloading();
 		
-	}
+	};
 	
 })(jQuery);
+
+$(document).ready(function(){
+	$('.phone').mask('(00)00000-0000');
+});

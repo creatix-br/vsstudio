@@ -1,0 +1,13 @@
+app:
+  defaults:
+    sgbd_error: "Ops! Houve um erro em sua requisição!"
+_defaults:
+  forms:
+    invalid_raw_data: "Dados inválidos."
+    success: "Operação efetivada com sucesso."
+password:
+  reset:
+    default: "Senha inválida. Verifique se digitou a mesma senha, da mesma forma, 2 vezes e que ela possua, no mínimo, 8 caracteres. E lembre-se: a senha diferencia letras maiúsculas e minúsculas."
+  update:
+    confirm_not_match: "As formas como você digitou a nova senha divergem."
+    success: "Senha atualizada com sucesso."

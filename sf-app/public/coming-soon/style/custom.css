@@ -1,0 +1,15 @@
+#newsletter-form button {
+    min-width: 108px;
+}
+
+button.disabled {
+    background: none #fff;
+    color: #000;
+}
+
+button.disabled:hover {
+    text-decoration: none;
+    cursor: none;
+    background: none #fff;
+    color: #000;
+}

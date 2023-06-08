@@ -15,13 +15,16 @@
 	
 	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" type="text/css" href="{{ asset('coming-soon/style/plugins.css?8') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ asset('coming-soon/style/style.css?9') }}" />	
+	<link rel="stylesheet" type="text/css" href="{{ asset('coming-soon/style/style.css?9') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('coming-soon/style/custom.css') }}" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <script type="text/javascript" src="{{ asset('coming-soon/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('coming-soon/js/plugins.js?8') }}"></script>
     <script type="text/javascript" src="{{ asset('coming-soon/js/script.js') }}"></script>
     <script type="text/javascript" src="{{ asset('coming-soon/js/custom.js?2021') }}"></script>
+	<script type="text/javascript" src="{{ asset('coming-soon/js/jquery.mask.min.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!--[if lt IE 9]>
         <script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,14 +43,14 @@
 						<h1 id="logo" class="anim-go-left"><a href="/"><span>Vívia Silva Studio</span></a></h1>				
 						<h2 class="anim-go-right">Estamos chegando...</h2>
 						<div id="countdown" class="anim-go-left"></div>
-						<h5 class="anim-go-right">Cadastre-se e garanta descontos exclusivos para sempre!</h5>
-						<form method="post" id="newsletter-form" class="the-form anim-go-left" action="{{ path('early_registration') }}">
+						<h5 class="anim-go-right" style="margin-bottom: -10px">Cadastre-se e garanta descontos exclusivos para sempre!</h5>
+						<small>* Regulamento disponível nas páginas do <a href="https://www.facebook.com/viviasilvastudio" target="_blank">Facebook</a> e do <a href="https://www.instagram.com/viviasilvastudio" target="_blank">Instagram</a></small>
+						<form method="post" id="newsletter-form" class="the-form anim-go-left" action="{{ path('early_registration') }}" novalidate>
 							<div class="field-wrapper">
 								<input type="text" class="textfield" name="name" placeholder="Nome e Sobrenome" required />
 								<input type="text" class="textfield" name="email" placeholder="E-mail" required />
-								<input type="text" class="textfield" name="phone" placeholder="Telefone" required />
+								<input type="text" class="textfield phone" name="phone" placeholder="Telefone" required />
 								<button type="submit" class="btn">Cadastrar</button>
-								<input type="hidden" name="submit" value="1" />
 							</div>
 							<div class="message"></div>
 						</form>	
@@ -61,8 +64,8 @@
 				<div class="footer-wrapper">
 					<div class="footer-item">
 						<ul class="social-links">
-							<li><a class="social anim-go-top facebook" href="https://www.facebook.com/profile.php?id=100093262186397" target="_blank" title="Facebook"><span></span></a></li>
-							<li><a class="social anim-go-bottom instagram" href="https://www.instagram.com/viviasilva_studio/" target="_blank" title="Instagram"><span></span></a></li>
+							<li><a class="social anim-go-top facebook" href="https://www.facebook.com/viviasilvastudio" target="_blank" title="Facebook"><span></span></a></li>
+							<li><a class="social anim-go-bottom instagram" href="https://www.instagram.com/viviasilvastudio/" target="_blank" title="Instagram"><span></span></a></li>
 						</ul>
 					</div>
 				</div>

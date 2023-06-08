@@ -33,8 +33,6 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"_list", "_fetch"})
-     * 
      * @var integer
      */
     private $id;
@@ -42,12 +40,11 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true, nullable=true)
      * 
+     * @Assert\NotBlank(message="_default.not_null")
      * @Assert\Email(
      *      mode = "html5",
      *      normalizer = "trim"
      * )
-     * 
-     * @Groups({"_list", "_fetch"})
      * 
      * @var string
      */
@@ -62,8 +59,6 @@ class User implements UserInterface
      *      normalizer = "trim"
      * )
      * 
-     * @Groups({"_list", "_fetch"})
-     * 
      * @var string
      */
     private $name;
@@ -71,9 +66,11 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=100, unique=true)
      * 
+     * @Assert\NotBlank(message="_default.not_null")
      * @Assert\Regex(
      *      pattern="/^\d{10,11}$/",
-     *      normalizer = "trim"
+     *      normalizer = "trim",
+     *      message="_default.invalid"
      * )
      * 
      * @var string
